@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import Container from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import MobileMenu from "./MobileMenu";
+import Image from "next/image";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -37,12 +38,14 @@ export default function Header() {
         <Container className="py-3 md:py-4 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 flex-shrink-0">
-            <div className="w-11 h-11 bg-gradient-to-br from-primary-600 to-primary-500 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-lg hover:shadow-xl transition-shadow">
-              MG
-            </div>
-            <div className="hidden sm:block">
-              <div className="font-bold text-dark-900 text-sm leading-tight">MG</div>
-              <div className="text-xs text-primary-600 font-semibold">Hidráulica</div>
+            <div>
+              <Image
+                src="/img/logo.png"
+                alt="MG Hidráulica"
+                width={220}
+                height={80}
+                priority
+                className="h-14 w-auto object-contain" />
             </div>
           </Link>
 
