@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import Container from "@/components/ui/Container";
 
 export default function Footer() {
@@ -33,52 +34,79 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-gradient-to-b from-dark-900 to-dark-950 text-white mt-20 border-t border-dark-800">
-      <Container className="py-16 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-          {/* Brand */}
+    <footer className="mt-20 bg-gradient-to-r from-[#1F4A72] via-[#255B88] to-[#1F4A72] text-white">
+      <Container className="py-12">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
+          {/* Marca */}
           <div>
-            <div className="flex items-center mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-primary-600 to-primary-500 rounded-xl flex items-center justify-center font-bold shadow-lg">
-                MG
-              </div>
-              <div className="ml-3">
-                <div className="font-bold text-white">MG Hidráulica</div>
-                <div className="text-xs text-primary-400 font-semibold">
+            <div className="mb-5 flex items-center">
+              <Image
+                src="/img/logo.png"
+                alt="MG Hidráulica"
+                width={72}
+                height={72}
+                className="h-16 w-16 rounded-full bg-white object-contain p-1"
+              />
+
+              <div className="ml-4">
+                <div className="text-xl font-bold text-white">
+                  MG Hidráulica
+                </div>
+                <div className="text-sm font-semibold text-[#8BC53F]">
                   Desde 1990
                 </div>
               </div>
             </div>
-            <p className="text-dark-400 text-sm leading-relaxed">
-              Há mais de 30 anos oferecendo soluções industriais de qualidade.
+
+            <p className="max-w-xs text-sm leading-relaxed text-white/75">
+              Há mais de 30 anos oferecendo soluções industriais de qualidade em
+              hidráulica, pneumática, usinagem e caldeiraria.
             </p>
 
-            {/* Social Links */}
-            <div className="flex gap-4 mt-6">
-              {["📧", "🔗", "📱"].map((icon) => (
-                <a
-                  key={icon}
-                  href="#"
-                  className="w-10 h-10 rounded-lg bg-dark-800 hover:bg-primary-600 flex items-center justify-center transition-colors"
-                >
-                  {icon}
-                </a>
-              ))}
+            <div className="mt-6 flex gap-3">
+              <a
+                href="mailto:contato@mghidraulica.com.br"
+                className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 text-sm font-bold text-white transition hover:bg-[#8BC53F] hover:text-[#1F4A72]"
+                aria-label="Email"
+              >
+                @
+              </a>
+
+              <a
+                href="https://wa.me/5531000000000"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 text-sm font-bold text-white transition hover:bg-[#8BC53F] hover:text-[#1F4A72]"
+                aria-label="WhatsApp"
+              >
+                W
+              </a>
+
+              <a
+                href="https://www.linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 text-sm font-bold text-white transition hover:bg-[#8BC53F] hover:text-[#1F4A72]"
+                aria-label="LinkedIn"
+              >
+                in
+              </a>
             </div>
           </div>
 
-          {/* Footer Links */}
+          {/* Links */}
           {footerSections.map((section) => (
             <div key={section.title}>
-              <h4 className="font-bold mb-6 text-white text-sm uppercase tracking-wide">
+              <h4 className="mb-5 text-sm font-bold uppercase tracking-wide text-white">
                 {section.title}
               </h4>
+
               <ul className="space-y-3">
                 {section.links.map((link) => (
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="text-dark-400 hover:text-primary-400 transition-colors text-sm font-medium"
+                      className="text-sm font-medium text-white/75 transition-colors hover:text-[#8BC53F]"
                     >
                       {link.name}
                     </Link>
@@ -89,12 +117,17 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-dark-800 pt-8">
-          <p className="text-dark-500 text-sm text-center">
-            © {currentYear} MG Hidráulica - Mecânica Industrial. Todos os
-            direitos reservados.
-          </p>
+        <div className="mt-10 border-t border-white/10 pt-6">
+          <div className="flex flex-col items-center justify-between gap-3 text-center md:flex-row md:text-left">
+            <p className="text-sm text-white/60">
+              © {currentYear} MG Hidráulica - Mecânica Industrial. Todos os
+              direitos reservados.
+            </p>
+
+            <p className="text-sm text-white/55">
+              Betim • Minas Gerais • Brasil
+            </p>
+          </div>
         </div>
       </Container>
     </footer>

@@ -32,7 +32,7 @@ export default function HeroSection() {
         className="absolute inset-0 opacity-15"
         style={{
           backgroundImage:
-            "url('https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1920&q=80')",
+            "url('/img/bg-1.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

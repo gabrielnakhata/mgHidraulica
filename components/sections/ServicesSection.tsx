@@ -8,51 +8,53 @@ import { Button } from "@/components/ui/Button";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
 export default function ServicesSection() {
-  const mainServices = [
-    {
-      id: "hidraulica",
-      title: "Hidráulica",
-      description:
-        "Soluções completas em sistemas hidráulicos e pneumáticos",
-      icon: "💧",
-      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&q=80",
-      items: [
-        "Cilindros hidráulicos",
-        "Bombas hidráulicas",
-        "Motores hidráulicos",
-        "Unidades hidráulicas",
-      ],
-    },
-    {
-      id: "mecanica",
-      title: "Mecânica",
-      description:
-        "Componentes mecânicos de alta qualidade para indústria pesada",
-      icon: "⚙️",
-      image: "https://images.unsplash.com/photo-1581092162562-40038461b398?w=800&q=80",
-      items: [
-        "Motoredutores",
-        "Redutores",
-        "Componentes estruturais",
-        "Peças especiais",
-      ],
-    },
-    {
-      id: "usinagem",
-      title: "Usinagem & Caldeiraria",
-      description:
-        "Serviços especializados de usinagem de precisão e caldeiraria",
-      icon: "🔨",
-      image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80",
-      items: [
-        "Usinagem de precisão",
-        "Caldeiraria industrial",
-        "Reparos estruturais",
-        "Pintura industrial",
-      ],
-    },
-  ];
-
+const mainServices = [
+  {
+    id: "hidraulica",
+    title: "Hidráulica",
+    description:
+      "Soluções completas em sistemas hidráulicos e pneumáticos",
+    icon: "💧",
+    image:
+      "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=900&q=85",
+    items: [
+      "Cilindros hidráulicos",
+      "Bombas hidráulicas",
+      "Motores hidráulicos",
+      "Unidades hidráulicas",
+    ],
+  },
+  {
+    id: "mecanica",
+    title: "Mecânica",
+    description:
+      "Componentes mecânicos de alta qualidade para indústria pesada",
+    icon: "⚙️",
+    image:
+       "/img/bg-2.jpg",
+    items: [
+      "Motoredutores",
+      "Redutores",
+      "Componentes estruturais",
+      "Peças especiais",
+    ],
+  },
+  {
+    id: "usinagem",
+    title: "Usinagem & Caldeiraria",
+    description:
+      "Serviços especializados de usinagem de precisão e caldeiraria",
+    icon: "🔨",
+    image:
+      "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=900&q=85",
+    items: [
+      "Usinagem de precisão",
+      "Caldeiraria industrial",
+      "Reparos estruturais",
+      "Pintura industrial",
+    ],
+  },
+];
   return (
     <section className="section-padding bg-white">
       <Container>
