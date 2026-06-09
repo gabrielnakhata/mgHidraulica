@@ -35,9 +35,14 @@ const config: Config = {
           900: "#111827",
         },
       },
-      fontFamily: {
-        sans: ["system-ui", "sans-serif"],
-      },
+      extend: {
+  colors: {
+    // suas cores atuais
+  },
+  fontFamily: {
+    sans: ["var(--font-manrope)", "system-ui", "sans-serif"],
+  },
+},
       animation: {
         fadeIn: "fadeIn 0.5s ease-in-out",
         slideUp: "slideUp 0.5s ease-out",

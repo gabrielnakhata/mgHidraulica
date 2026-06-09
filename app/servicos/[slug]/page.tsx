@@ -194,7 +194,6 @@ export default function ServicoDetailPage() {
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow">
-        {/* Hero Section */}
       <section className="bg-gradient-to-r from-dark-900 to-dark-800 text-white py-20 md:py-32">
         <Container>
           <div className="flex items-center gap-4 mb-4">
@@ -212,7 +211,6 @@ export default function ServicoDetailPage() {
         </Container>
       </section>
 
-      {/* Descrição Completa */}
       <section className="section-padding bg-white">
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -223,7 +221,6 @@ export default function ServicoDetailPage() {
               </p>
             </div>
 
-            {/* Especificações */}
             <div className="bg-primary-50 p-8 rounded-lg border border-primary-300">
               <h3 className="text-xl font-bold text-dark-900 mb-6">
                 Especificações
@@ -241,7 +238,6 @@ export default function ServicoDetailPage() {
         </Container>
       </section>
 
-      {/* Aplicações */}
       <section className="section-padding bg-dark-50">
         <Container>
           <SectionTitle title="Aplicações" />
@@ -258,7 +254,6 @@ export default function ServicoDetailPage() {
         </Container>
       </section>
 
-      {/* CTA */}
       <section className="section-padding bg-gradient-to-r from-primary-600 to-primary-500 text-white">
         <Container className="text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">

@@ -37,7 +37,6 @@ export default function Footer() {
     <footer className="mt-20 bg-gradient-to-r from-[#1F4A72] via-[#255B88] to-[#1F4A72] text-white">
       <Container className="py-12">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
-          {/* Marca */}
           <div>
             <div className="mb-5 flex items-center">
               <Image
@@ -94,7 +93,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Links */}
           {footerSections.map((section) => (
             <div key={section.title}>
               <h4 className="mb-5 text-sm font-bold uppercase tracking-wide text-white">

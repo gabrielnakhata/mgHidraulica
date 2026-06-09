@@ -6,6 +6,7 @@ import SectionTitle from "@/components/ui/SectionTitle";
 import Card from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import AnimatedSection from "@/components/ui/AnimatedSection";
+import Image from "next/image";
 
 export default function ServicesSection() {
 const mainServices = [
@@ -63,26 +64,26 @@ const mainServices = [
           subtitle="Soluções integradas para sua indústria"
         />
 
-        {/* Serviços com Layout Alternado */}
         <div className="space-y-16 mb-12">
           {mainServices.map((service, index) => (
             <AnimatedSection key={service.id} delay={index * 0.2}>
               <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center`}>
-                {/* Imagem */}
                 <div
                   className={`relative h-80 rounded-xl overflow-hidden shadow-lg ${
                     index % 2 !== 0 ? "lg:order-2" : ""
                   }`}
                 >
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  />
+                <div className="relative h-64 overflow-hidden">
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-dark-900/30 to-transparent"></div>
                 </div>
 
-                {/* Conteúdo */}
                 <div className={index % 2 !== 0 ? "lg:order-1" : ""}>
                   <div className="flex items-center gap-3 mb-4">
                     <span className="text-4xl">{service.icon}</span>
@@ -122,7 +123,6 @@ const mainServices = [
           ))}
         </div>
 
-        {/* Diferenciais */}
         <div className="mt-20 pt-12 border-t border-dark-200">
           <SectionTitle
             title="Por que nos escolher?"

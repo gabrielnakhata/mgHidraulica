@@ -27,7 +27,6 @@ export default function HeroSection() {
 
   return (
     <section className="relative bg-gradient-to-br from-dark-900 via-dark-800 to-primary-900 text-white pt-20 pb-32 md:pt-32 md:pb-40 overflow-hidden">
-      {/* Background Image Overlay */}
       <div
         className="absolute inset-0 opacity-15"
         style={{
@@ -38,7 +37,6 @@ export default function HeroSection() {
         }}
       ></div>
 
-      {/* Background Pattern */}
       <div className="absolute inset-0 opacity-15">
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-primary-500 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-primary-600 rounded-full blur-3xl"></div>
@@ -96,7 +94,6 @@ export default function HeroSection() {
         </motion.div>
       </Container>
 
-      {/* Scroll Indicator */}
       <motion.div
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 2, repeat: Infinity }}

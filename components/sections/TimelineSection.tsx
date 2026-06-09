@@ -46,19 +46,16 @@ export default function TimelineSection() {
           {timeline.map((event, index) => (
             <AnimatedSection key={event.year} delay={index * 0.1}>
               <div className="flex gap-6 mb-12 relative">
-                {/* Timeline Line */}
                 {index !== timeline.length - 1 && (
                   <div className="absolute left-7 top-16 w-0.5 h-24 bg-primary-300"></div>
                 )}
 
-                {/* Circle */}
                 <div className="flex-shrink-0">
                   <div className="w-16 h-16 rounded-full bg-primary-500 text-white flex items-center justify-center font-bold text-lg border-4 border-white">
                     {event.year.slice(-2)}
                   </div>
                 </div>
 
-                {/* Content */}
                 <div className="flex-grow pt-2">
                   <h3 className="text-2xl font-bold text-dark-900 mb-2">
                     {event.title}

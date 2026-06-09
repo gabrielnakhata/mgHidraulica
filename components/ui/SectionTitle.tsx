@@ -1,6 +1,5 @@
 import React from "react";
 import { cn } from "@/lib/utils";
-import { Padauk } from "next/font/google";
 
 interface SectionTitleProps {
   title: string;

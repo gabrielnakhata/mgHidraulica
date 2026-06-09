@@ -36,7 +36,6 @@ export default function Header() {
         }`}
       >
         <Container className="py-3 md:py-4 flex items-center justify-between">
-          {/* Logo */}
           <Link href="/" className="flex items-center gap-3 flex-shrink-0">
             <div>
               <Image
@@ -49,7 +48,6 @@ export default function Header() {
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-12">
             {navigation.map((item) => (
               <Link
@@ -63,7 +61,6 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* Desktop CTA Buttons */}
           <div className="hidden lg:flex items-center gap-3">
             <Link href="/contato">
               <Button variant="outline" size="sm" className="text-xs px-3">
@@ -77,7 +74,6 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             className="lg:hidden p-2 hover:bg-dark-100 rounded-lg transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -102,10 +98,8 @@ export default function Header() {
         </Container>
       </header>
 
-      {/* Spacer para evitar conteúdo sob header */}
       <div className="h-16 md:h-20"></div>
 
-      {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <MobileMenu
           navigation={navigation}
