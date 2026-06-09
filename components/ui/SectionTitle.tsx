@@ -16,7 +16,7 @@ export default function SectionTitle({
   centered = true,
 }: SectionTitleProps) {
   return (
-    <div className={cn("mb-12 padding-bottom-2px", centered && "text-center", className)}>
+    <div className={cn("mb-12", centered && "text-center", className)}>
       <h2 className="text-3xl md:text-6xl font-bold text-dark-900 mb-4">
         {title}
       </h2>
