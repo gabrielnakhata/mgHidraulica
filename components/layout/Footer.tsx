@@ -64,7 +64,7 @@ export default function Footer() {
 
             <div className="mt-6 flex gap-3">
               <a
-                href="mailto:contato@mghidraulica.com.br"
+                href="mailto:comercial@mghidraulica.com.br"
                 className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 text-white transition hover:bg-[#8BC53F] hover:text-[#1F4A72]"
                 aria-label="Email"
               >
