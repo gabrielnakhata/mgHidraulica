@@ -2,7 +2,6 @@
 
 import Container from "@/components/ui/Container";
 import SectionTitle from "@/components/ui/SectionTitle";
-import IconBox from "@/components/ui/IconBox";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
 export default function ClientsSection() {
@@ -22,7 +21,7 @@ export default function ClientsSection() {
 
         <AnimatedSection className="mb-12 max-w-3xl mx-auto">
           <p className="text-lg text-dark-700 text-center leading-relaxed">
-            Os clientes da MG HIDRÁULICA – MECÂNICA INDUSTRIAL são empresas dos
+            Os clientes da MG HIDRÁULICA - MECÂNICA INDUSTRIAL são empresas dos
             segmentos industrial, transporte, sondagem, construção civil,
             agricultura, dentre outros.
           </p>

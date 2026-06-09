@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter, usePathname } from "next/navigation";
+import {usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import Loader from "./Loader";
 
@@ -9,7 +9,6 @@ export default function PageTransition({
 }: {
   children: React.ReactNode;
 }) {
-  const router = useRouter();
   const pathname = usePathname();
   const [isLoading, setIsLoading] = useState(false);
 

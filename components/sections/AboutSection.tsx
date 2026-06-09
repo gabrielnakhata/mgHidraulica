@@ -3,6 +3,7 @@
 import Container from "@/components/ui/Container";
 import SectionTitle from "@/components/ui/SectionTitle";
 import AnimatedSection from "@/components/ui/AnimatedSection";
+import Image from "next/image";
 
 export default function AboutSection() {
   const benefits = [
@@ -40,10 +41,12 @@ export default function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center mb-14">
           <AnimatedSection>
             <div className="relative h-[340px] md:h-[420px] overflow-hidden rounded-2xl shadow-xl border border-[#DDE7E3] bg-[#1F4A72]">
-              <img
-                src="/img/bg-1.jpg"
-                alt="Soluções Industriais MG Hidráulica"
-                className="w-full h-full object-cover opacity-90"
+              <Image
+              src="/img/bg-1.jpg"
+              alt="Soluções Industriais MG Hidráulica"
+              fill
+              priority
+              className="object-cover opacity-90"
               />
 
               <div className="absolute inset-0 bg-gradient-to-r from-[#1F4A72]/70 via-[#1F4A72]/25 to-transparent" />

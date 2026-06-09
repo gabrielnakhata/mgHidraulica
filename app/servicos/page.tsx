@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/Button";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
 export default function ServicosPage() {
+
   const services = [
     {
       id: "cilindros-hidraulicos",
@@ -67,13 +68,10 @@ export default function ServicosPage() {
     },
   ];
 
-  const categories = ["Hidráulica", "Mecânica", "Usinagem e Caldeiraria", "Serviços Especiais"];
-
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow">
-        {/* Hero Section */}
       <section className="bg-gradient-to-r from-dark-900 to-dark-800 text-white py-20 md:py-32">
         <Container className="text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -85,7 +83,6 @@ export default function ServicosPage() {
         </Container>
       </section>
 
-      {/* Serviços Grid */}
       <section className="section-padding bg-white">
         <Container>
           <SectionTitle
@@ -127,8 +124,6 @@ export default function ServicosPage() {
         </Container>
       </section>
 
-      {/* Por que nos escolher */}
-      
       <section className="section-padding bg-dark-50">
         <Container>
           <SectionTitle
@@ -172,7 +167,6 @@ export default function ServicosPage() {
         </Container>
       </section>
 
-      {/* CTA Final */}
       <section className="section-padding bg-gradient-to-r from-primary-600 to-primary-500 text-white">
         <Container className="text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
