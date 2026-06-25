@@ -68,7 +68,7 @@ export default function AboutSection() {
                     anos de
                   </div>
                   <div className="mt-2 md:text-1xl font-bold uppercase tracking-wide text-[#243447]">
-                    experiência
+                    experiência!
                   </div>
                 </div>
               </div>
