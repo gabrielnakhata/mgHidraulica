@@ -22,6 +22,7 @@ export default function Header() {
   const navigation = [
     { name: "Início", href: "/" },
     { name: "Empresa", href: "/empresa" },
+    { name: "Por que Reformar", href: "/por-que-reformar" },
     { name: "Serviços", href: "/servicos" },
     { name: "Contato", href: "/contato" },
   ];

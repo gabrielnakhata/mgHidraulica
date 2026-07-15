@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Container from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { motion } from "framer-motion";
@@ -49,11 +50,6 @@ export default function HeroSection() {
           variants={containerVariants}
           className="max-w-4xl mx-auto text-center"
         >
-          <motion.div variants={itemVariants} className="mb-6">
-            <span className="inline-block px-4 py-2 bg-primary-500/20 border border-primary-400/50 rounded-full text-primary-200 text-sm font-semibold">
-              Mais de 30 anos de tradição
-            </span>
-          </motion.div>
 
           <motion.h1
             variants={itemVariants}
@@ -80,16 +76,20 @@ export default function HeroSection() {
             variants={itemVariants}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-white hover:text-dark-900 font-semibold"
-            >
-              Conheça a Empresa
-            </Button>
-            <Button size="lg" className="bg-primary-600 hover:bg-primary-700 font-semibold">
-              Solicite um Orçamento
-            </Button>
+            <Link href="/empresa">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white text-white hover:bg-white hover:text-dark-900 font-semibold"
+              >
+                Conheça a Empresa
+              </Button>
+            </Link>
+            <Link href="/contato">
+              <Button size="lg" className="bg-primary-600 hover:bg-primary-700 font-semibold">
+                Solicite um Orçamento
+              </Button>
+            </Link>
           </motion.div>
         </motion.div>
       </Container>
