@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { useForm } from "react-hook-form";
@@ -11,10 +10,6 @@ import { Button } from "@/components/ui/Button";
 import { contactFormSchema, type ContactFormData } from "@/lib/validations";
 
 export default function ContatoPage() {
-  const [submitStatus, setSubmitStatus] = useState<
-    "idle" | "loading" | "success" | "error"
-  >("idle");
-
   const {
     register,
     handleSubmit,
@@ -24,22 +19,34 @@ export default function ContatoPage() {
     resolver: zodResolver(contactFormSchema),
   });
 
-  const onSubmit = async (data: ContactFormData) => {
-    try {
-      setSubmitStatus("loading");
+  const onSubmit = (data: ContactFormData) => {
+    // Construir mensagem formatada para WhatsApp
+    const whatsappMessage = `*SOLICITAÇÃO DE ORÇAMENTO*
 
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+*DADOS DO SOLICITANTE:*
+Nome: ${data.name}
+Empresa: ${data.company}
+Telefone: ${data.phone}
+Email: ${data.email}
 
-      console.log("Form data:", data);
-      setSubmitStatus("success");
-      reset();
+*SERVIÇO DE INTERESSE:*
+${data.service}
 
-      setTimeout(() => setSubmitStatus("idle"), 5000);
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      setSubmitStatus("error");
-      setTimeout(() => setSubmitStatus("idle"), 5000);
-    }
+*MENSAGEM/DETALHES:*
+${data.message}
+
+---
+Enviado através do website MG Hidráulica`;
+
+    // Codificar mensagem para URL
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+
+    // Abrir WhatsApp com mensagem pré-preenchida
+    const whatsappUrl = `https://wa.me/553171749738?text=${encodedMessage}`;
+    window.open(whatsappUrl, "_blank");
+
+    // Limpar formulário
+    reset();
   };
 
   const contactInfo = [
@@ -51,7 +58,7 @@ export default function ContatoPage() {
     {
       icon: "📱",
       title: "Telefone",
-      value: "+55 (31) XXXX-XXXX",
+      value: "+55 (31) 7174-9738",
     },
     {
       icon: "📍",
@@ -142,7 +149,7 @@ export default function ContatoPage() {
                   </p>
 
                   <a
-                    href="https://wa.me/5531000000000"
+                    href="https://wa.me/553171749738?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex w-full items-center justify-center rounded-lg bg-white px-5 py-3 text-sm font-bold text-primary-700 transition hover:bg-dark-50"
@@ -184,7 +191,6 @@ export default function ContatoPage() {
                         type="text"
                         placeholder="Seu nome"
                         className="w-full rounded-lg border border-dark-300 px-4 py-3 transition focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-200"
-                        disabled={submitStatus === "loading"}
                       />
                       {errors.name && (
                         <p className="mt-1 text-sm text-red-600">
@@ -206,7 +212,6 @@ export default function ContatoPage() {
                         type="text"
                         placeholder="Nome da empresa"
                         className="w-full rounded-lg border border-dark-300 px-4 py-3 transition focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-200"
-                        disabled={submitStatus === "loading"}
                       />
                       {errors.company && (
                         <p className="mt-1 text-sm text-red-600">
@@ -228,7 +233,6 @@ export default function ContatoPage() {
                         type="tel"
                         placeholder="(31) 9XXXX-XXXX"
                         className="w-full rounded-lg border border-dark-300 px-4 py-3 transition focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-200"
-                        disabled={submitStatus === "loading"}
                       />
                       {errors.phone && (
                         <p className="mt-1 text-sm text-red-600">
@@ -250,7 +254,6 @@ export default function ContatoPage() {
                         type="email"
                         placeholder="seu@email.com"
                         className="w-full rounded-lg border border-dark-300 px-4 py-3 transition focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-200"
-                        disabled={submitStatus === "loading"}
                       />
                       {errors.email && (
                         <p className="mt-1 text-sm text-red-600">
@@ -271,7 +274,6 @@ export default function ContatoPage() {
                       {...register("service")}
                       id="service"
                       className="w-full rounded-lg border border-dark-300 px-4 py-3 transition focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-200"
-                      disabled={submitStatus === "loading"}
                     >
                       <option value="">Selecione um serviço</option>
                       {services.map((service) => (
@@ -300,7 +302,6 @@ export default function ContatoPage() {
                       placeholder="Descreva sua necessidade..."
                       rows={5}
                       className="w-full resize-none rounded-lg border border-dark-300 px-4 py-3 transition focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-200"
-                      disabled={submitStatus === "loading"}
                     />
                     {errors.message && (
                       <p className="mt-1 text-sm text-red-600">
@@ -309,27 +310,12 @@ export default function ContatoPage() {
                     )}
                   </div>
 
-                  {submitStatus === "success" && (
-                    <div className="rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-green-800">
-                      ✓ Formulário enviado com sucesso! Retornaremos em breve.
-                    </div>
-                  )}
-
-                  {submitStatus === "error" && (
-                    <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-red-800">
-                      ✗ Erro ao enviar formulário. Por favor, tente novamente.
-                    </div>
-                  )}
-
                   <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:items-center">
                     <Button
                       type="submit"
                       className="w-full px-10 sm:w-auto"
-                      disabled={submitStatus === "loading"}
                     >
-                      {submitStatus === "loading"
-                        ? "Enviando..."
-                        : "Solicitar Orçamento"}
+                      Abrir WhatsApp
                     </Button>
 
                     <p className="text-sm text-dark-500">

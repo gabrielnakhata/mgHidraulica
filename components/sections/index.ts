@@ -4,3 +4,4 @@ export { default as ServicesSection } from "./ServicesSection";
 export { default as ClientsSection } from "./ClientsSection";
 export { default as TimelineSection } from "./TimelineSection";
 export { default as ContactCTA } from "./ContactCTA";
+export { default as WhyRefurbishSection } from "./WhyRefurbishSection";
