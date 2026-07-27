@@ -3,7 +3,6 @@
 import Container from "@/components/ui/Container";
 import SectionTitle from "@/components/ui/SectionTitle";
 import AnimatedSection from "@/components/ui/AnimatedSection";
-import Image from "next/image";
 
 export default function ClientsSection() {
   const segments = [

@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import Container from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
 import MobileMenu from "./MobileMenu";
 import Image from "next/image";
 
