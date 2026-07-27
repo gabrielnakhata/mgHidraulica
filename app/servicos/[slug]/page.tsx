@@ -13,6 +13,7 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 const serviceDetails: Record<string, any> = {
   "hidraulica": {
     title: "Hidráulica",
+    icon: "💧",
     category: "Hidráulica",
     description:
       "Soluções completas em sistemas hidráulicos e pneumáticos",
@@ -38,6 +39,7 @@ const serviceDetails: Record<string, any> = {
   },
   "mecanica": {
     title: "Mecânica",
+    icon: "⚙️",
     category: "Mecânica",
     description:
       "Componentes mecânicos de alta qualidade para indústria pesada",
@@ -65,6 +67,7 @@ const serviceDetails: Record<string, any> = {
   },
   "usinagem": {
     title: "Usinagem & Caldeiraria",
+    icon: "🛠️",
     category: "Usinagem e Caldeiraria",
     description:
       "Serviços especializados de usinagem de precisão e caldeiraria",
