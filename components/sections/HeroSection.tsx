@@ -1,8 +1,6 @@
 "use client";
 
-import Link from "next/link";
 import Container from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
 import { motion } from "framer-motion";
 
 export default function HeroSection() {
@@ -27,9 +25,9 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative bg-gradient-to-br from-dark-900 via-dark-800 to-primary-900 text-white pt-20 pb-32 md:pt-32 md:pb-40 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-dark-800 via-dark-700 to-primary-800 text-white pt-20 pb-32 md:pt-32 md:pb-40 overflow-hidden">
       <div
-        className="absolute inset-0 opacity-15"
+        className="absolute inset-0 opacity-30"
         style={{
           backgroundImage:
             "url('/img/bg-1.jpg')",
@@ -71,26 +69,6 @@ export default function HeroSection() {
             Somos fornecedores de ideias e soluções industriais. Fabricar e
             reformar são a materialização desta missão.
           </motion.p>
-
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <Link href="/empresa">
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-dark-900 font-semibold"
-              >
-                Conheça a Empresa
-              </Button>
-            </Link>
-            <Link href="/contato">
-              <Button size="lg" className="bg-primary-600 hover:bg-primary-700 font-semibold">
-                Solicite um Orçamento
-              </Button>
-            </Link>
-          </motion.div>
         </motion.div>
       </Container>
 

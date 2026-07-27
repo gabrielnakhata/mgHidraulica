@@ -54,22 +54,6 @@ export default function PhraseCarousel({
           </p>
         </motion.div>
       </AnimatePresence>
-
-      {/* Indicadores */}
-      <div className="flex justify-center gap-2 mt-8">
-        {phrases.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrent(index)}
-            className={`h-2 rounded-full transition-all duration-300 ${
-              index === current
-                ? "bg-primary-600 w-8"
-                : "bg-dark-300 w-2 hover:bg-dark-400"
-            }`}
-            aria-label={`Go to phrase ${index + 1}`}
-          />
-        ))}
-      </div>
     </div>
   );
 }

@@ -22,7 +22,7 @@ export default function Header() {
   const navigation = [
     { name: "Início", href: "/" },
     { name: "Empresa", href: "/empresa" },
-    { name: "Por que Reformar", href: "/por-que-reformar" },
+    { name: "Recupere não descarte seu componente", href: "/por-que-reformar" },
     { name: "Serviços", href: "/servicos" },
     { name: "Contato", href: "/contato" },
   ];
@@ -62,18 +62,7 @@ export default function Header() {
             ))}
           </nav>
 
-          <div className="hidden lg:flex items-center gap-3">
-            <Link href="/contato">
-              <Button variant="outline" size="sm" className="text-xs px-3">
-                Fale Conosco
-              </Button>
-            </Link>
-            <Link href="/contato">
-              <Button size="sm" className="text-xs px-4 bg-primary-600 hover:bg-primary-700">
-                Orçamento
-              </Button>
-            </Link>
-          </div>
+
 
           <button
             className="lg:hidden p-2 hover:bg-dark-100 rounded-lg transition-colors"
