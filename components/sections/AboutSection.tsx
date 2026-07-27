@@ -4,8 +4,38 @@ import Container from "@/components/ui/Container";
 import SectionTitle from "@/components/ui/SectionTitle";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function AboutSection() {
+  const [selectedBenefit, setSelectedBenefit] = useState<string | null>(null);
+
+  const highlights = [
+    {
+      id: "experience",
+      title: "Mais de 30 anos de experiência",
+      description:
+        "Há mais de três décadas, a MG Hidráulica atua no mercado industrial oferecendo soluções em manutenção, fabricação e recuperação de componentes hidráulicos, pneumáticos e mecânicos. Nossa experiência nos permite compreender os desafios de cada operação e entregar serviços com segurança, precisão e confiabilidade.",
+    },
+    {
+      id: "team",
+      title: "Equipe especializada e qualificada",
+      description:
+        "Contamos com uma equipe técnica altamente capacitada, formada por profissionais experientes e comprometidos com a excelência. Investimos continuamente em qualificação, padronização de processos e aprimoramento técnico para garantir soluções eficientes, seguras e alinhadas às necessidades de cada cliente.",
+    },
+    {
+      id: "solutions",
+      title: "Soluções de alta qualidade",
+      description:
+        "Desenvolvemos soluções industriais com alto padrão de qualidade, unindo engenharia, fabricação, recuperação de componentes e manutenção especializada. Cada serviço é executado com rigor técnico, precisão e controle de qualidade, garantindo maior confiabilidade, desempenho e vida útil aos equipamentos de nossos clientes.",
+    },
+    {
+      id: "support",
+      title: "Suporte técnico contínuo",
+      description:
+        "Nosso compromisso vai além da entrega do serviço. Oferecemos suporte técnico especializado antes, durante e após a execução dos trabalhos, auxiliando nossos clientes na identificação de problemas, definição das melhores soluções e acompanhamento do desempenho dos equipamentos, contribuindo para maior disponibilidade operacional.",
+    },
+  ];
+
   const benefits = [
     {
       icon: "M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z",
@@ -79,39 +109,33 @@ export default function AboutSection() {
             <div className="rounded-2xl bg-white border border-[#DDE7E3] shadow-sm p-6 md:p-8">
               <div className="border-l-4 border-[#8BC53F] pl-5">
                 <p className="text-base md:text-lg text-[#243447] leading-8 mb-5">
-                  A MG HIDRÁULICA - MECÂNICA INDUSTRIAL é uma empresa
-                  fornecedora de soluções técnicas em mecânica industrial, que
-                  disponibiliza serviços e produtos diversificados que alcançam
-                  áreas distintas da atividade industrial e diversos setores da
-                  economia.
+                  A MG HIDRÁULICA – Mecânica Industrial Ltda. (MG HIDRÁULICA) está sediada em Betim, Minas Gerais e iniciou as suas atividades em 1990 na área de fabricação e recuperação de cilindros hidráulicos e pneumáticos, além de serviços de usinagem e caldeiraria média.
+                </p>
+
+                <p className="text-base md:text-lg text-[#243447] leading-8 mb-5">
+                  Ao longo dos anos, ampliou sua oferta de serviços incorporando serviços em unidades hidráulicas, bem como a reforma de bombas e comandos hidráulicos, redutores e motoredutores, componentes de caminhões fora de estrada e outros serviços especializados.
                 </p>
 
                 <p className="text-base md:text-lg text-[#243447] leading-8">
-                  Combinamos tradição com inovação, oferecendo soluções
-                  completas que aumentam a eficiência operacional de nossos
-                  clientes.
+                  Além da infraestrutura, equipamentos e instrumentos compatíveis com as exigências técnicas, opera com processos enxutos e flexíveis bem como uma equipe de profissionais especializados. Com localização estratégica na área industrial de Betim/MG, tem fácil acesso pelas rodovias BR381 e BR262, facilitando a logística de movimentação e transporte de cargas.
                 </p>
               </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-5">
-              {[
-                "Mais de 30 anos de experiência",
-                "Equipe especializada e qualificada",
-                "Produtos de alta qualidade",
-                "Suporte técnico contínuo",
-              ].map((item) => (
-                <div
-                  key={item}
-                  className="flex items-center gap-3 rounded-xl bg-white border border-[#DDE7E3] px-4 py-3 shadow-sm"
+              {highlights.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => setSelectedBenefit(item.id)}
+                  className="flex items-center gap-3 rounded-xl bg-white border border-[#DDE7E3] px-4 py-3 shadow-sm hover:shadow-md hover:border-[#8BC53F] transition-all duration-300 text-left cursor-pointer"
                 >
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#1F4A72] text-[#8BC53F] font-bold">
                     ✓
                   </span>
                   <span className="text-sm font-semibold text-[#243447]">
-                    {item}
+                    {item.title}
                   </span>
-                </div>
+                </button>
               ))}
             </div>
           </AnimatedSection>
@@ -144,6 +168,40 @@ export default function AboutSection() {
           ))}
         </div>
       </Container>
+
+      {/* Modal com descrição completa */}
+      {selectedBenefit && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            {highlights.map((item) => (
+              item.id === selectedBenefit && (
+                <div key={item.id} className="p-8">
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="flex items-start gap-4">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#1F4A72] text-[#8BC53F] font-bold text-lg">
+                        ✓
+                      </div>
+                      <h2 className="text-2xl font-bold text-[#1F4A72]">
+                        {item.title}
+                      </h2>
+                    </div>
+                    <button
+                      onClick={() => setSelectedBenefit(null)}
+                      className="text-gray-400 hover:text-gray-600 text-2xl font-light leading-none"
+                    >
+                      ×
+                    </button>
+                  </div>
+                  <div className="w-12 h-1 bg-[#8BC53F] mb-6" />
+                  <p className="text-base md:text-lg text-[#243447] leading-8">
+                    {item.description}
+                  </p>
+                </div>
+              )
+            ))}
+          </div>
+        </div>
+      )}
     </section>
   );
 }

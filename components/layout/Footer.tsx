@@ -11,8 +11,6 @@ export default function Footer() {
     {
       title: "Empresa",
       links: [
-        { name: "Sobre Nós", href: "/empresa" },
-        { name: "Nossa História", href: "/empresa#historia" },
         { name: "Missão, Visão e Valores", href: "/empresa#missao" },
       ],
     },
@@ -24,13 +22,7 @@ export default function Footer() {
         { name: "Usinagem", href: "/servicos/usinagem" },
       ],
     },
-    {
-      title: "Contato",
-      links: [
-        { name: "Solicitar Orçamento", href: "/contato" },
-        { name: "Fale Conosco", href: "/contato" },
-      ],
-    },
+
   ];
 
   return (
@@ -49,7 +41,7 @@ export default function Footer() {
 
               <div className="ml-4">
                 <div className="text-xl font-bold text-white">
-                  MG Hidráulica
+                  MG HIDRÁULICA
                 </div>
                 <div className="text-sm font-semibold text-[#8BC53F]">
                   Desde 1990
@@ -58,8 +50,7 @@ export default function Footer() {
             </div>
 
             <p className="max-w-xs text-sm leading-relaxed text-white/75">
-              Há mais de 30 anos oferecendo soluções industriais de qualidade em
-              hidráulica, pneumática, usinagem e caldeiraria.
+              Soluções industriais sob medida para a sua necessidade
             </p>
 
             <div className="mt-6 flex gap-3">
@@ -96,13 +87,37 @@ export default function Footer() {
               </a>
 
               <a
+                href="https://www.instagram.com/mghidraulicaindustrial"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 text-white transition hover:bg-[#8BC53F] hover:text-[#1F4A72]"
+                aria-label="Instagram"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="h-5 w-5"
+                >
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.266.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12c0-3.403 2.759-6.162 6.162-6.162 3.403 0 6.162 2.759 6.162 6.162 0 3.403-2.759 6.162-6.162 6.162-3.403 0-6.162-2.759-6.162-6.162zm2.26 0c0 2.162 1.762 3.924 3.902 3.924 2.14 0 3.924-1.762 3.924-3.924 0-2.14-1.762-3.924-3.924-3.924-2.14 0-3.902 1.784-3.902 3.924zm9.276-5.604c0 .795.645 1.44 1.44 1.44.795 0 1.44-.645 1.44-1.44 0-.795-.645-1.44-1.44-1.44-1.44 0-1.44.645-1.44 1.44z"/>
+                </svg>
+              </a>
+
+              <a
                 href="https://www.linkedin.com/company/mg-hidr%C3%A1ulica-ltda/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 text-sm font-bold text-white transition hover:bg-[#8BC53F] hover:text-[#1F4A72]"
+                className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 text-white transition hover:bg-[#8BC53F] hover:text-[#1F4A72]"
                 aria-label="LinkedIn"
               >
-                in
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="h-5 w-5"
+                >
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
+                </svg>
               </a>
             </div>
           </div>

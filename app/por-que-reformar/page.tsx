@@ -11,10 +11,58 @@ import { motion } from "framer-motion";
 import WhyRefurbishSection from "@/components/sections/WhyRefurbishSection";
 
 const adPhrases = [
-  "Soluções industriais sob medida para a sua necessidade.",
-  "Reformamos, recuperamos e devolvemos performance aos seus equipamentos.",
-  "Reduzimos o tempo de parada da sua produção.",
-  "Recuperar é mais inteligente que substituir.",
+  // FRASES PRINCIPAIS
+  "Mais de 30 anos transformando experiência em resultados que mantêm a sua operação em funcionamento.",
+  "Reduza o tempo de parada dos seus equipamentos com quem entrega qualidade no menor prazo possível.",
+  "Seu equipamento merece uma reforma executada com precisão técnica, agilidade e total confiabilidade.",
+  "Entregamos soluções industriais com o equilíbrio ideal entre qualidade, prazo e custo-benefício.",
+  "Cada serviço é executado em conformidade com as especificações técnicas e as necessidades específicas de cada cliente.",
+  "Nossa eficiência nos processos reduz prazos sem abrir mão da qualidade que sua operação exige.",
+  "Mais do que reformar equipamentos, devolvemos desempenho, confiabilidade e produtividade ao seu processo.",
+  "Preço justo, excelência técnica e compromisso com os prazos: a combinação que gera valor para sua empresa.",
+  "Quando o tempo é crítico, nossa agilidade faz a diferença para o seu negócio.",
+  "Somos o parceiro ideal para empresas que não podem parar e exigem resultados consistentes.",
+  "Experiência consolidada, equipe especializada e processos padronizados para entregar sempre o melhor resultado.",
+  "Sua produção merece um fornecedor comprometido com qualidade, precisão e pontualidade.",
+  "Nossa missão é prolongar a vida útil dos seus equipamentos com serviços executados no mais alto padrão técnico.",
+  "Atendimento rápido, soluções sob medida e compromisso total com a satisfação do cliente.",
+  "Escolha uma empresa que une tradição, inovação e excelência para entregar serviços industriais com máxima confiabilidade.",
+  "Há mais de 30 anos recuperando desempenho, reduzindo custos e entregando soluções industriais com agilidade, qualidade e confiança.",
+  
+  // FRASES COM ABORDAGEM AMBIENTAL
+  "Reformar é preservar valor: restauramos o desempenho dos seus componentes, reduzimos custos e contribuímos para um futuro mais sustentável.",
+  "Acreditamos que um componente industrial pode ter uma nova vida com a mesma confiabilidade, gerando economia para sua empresa e reduzindo o descarte de materiais.",
+  "Recuperar em vez de substituir é uma escolha inteligente: mais economia, menos desperdício e o mesmo compromisso com a performance.",
+  "Transformamos componentes usados em equipamentos prontos para novos desafios, unindo desempenho, economia e responsabilidade ambiental.",
+  
+  // SLOGANS - QUALIDADE E CONFIANÇA
+  "Mais desempenho. Menos paradas. Melhor custo-benefício.",
+  "Experiência que gera confiança. Tecnologia que entrega resultados.",
+  "Recuperamos componentes. Mantemos a indústria em movimento.",
+  "Qualidade que gera confiança.",
+  
+  // SLOGANS - AGILIDADE
+  "Menos tempo parado. Mais produtividade.",
+  "Agilidade para quem não pode esperar.",
+  "Rapidez que impulsiona resultados.",
+  "Seu equipamento pronto no menor prazo possível.",
+  
+  // SLOGANS - ECONOMIA E SUSTENTABILIDADE
+  "Recuperar é economizar e preservar.",
+  "Uma nova vida para seus equipamentos.",
+  "Desempenho renovado. Custos reduzidos.",
+  "Economia inteligente. Sustentabilidade real.",
+  "Reformar é investir no futuro.",
+  
+  // SLOGANS - EXPERIÊNCIA
+  "Mais de 30 anos de soluções industriais.",
+  "Tradição, inovação e resultados.",
+  "Experiência que entrega performance.",
+  "O parceiro certo para sua indústria.",
+  "Compromisso com resultados, todos os dias.",
+  
+  // FINAL
+  "Quando a produção não pode parar, a MG entrega a solução.",
 ];
 
 export default function WhyRefurbishPage() {
@@ -41,7 +89,7 @@ export default function WhyRefurbishPage() {
                   Decisão Inteligente
                 </span>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                  Por que Reformar?
+                  Decisão Inteligente
                 </h1>
                 <p className="text-xl text-primary-200 mb-8">
                   Transforme essa decisão em vantagem competitiva para seu

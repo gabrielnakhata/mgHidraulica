@@ -11,6 +11,80 @@ import { Button } from "@/components/ui/Button";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
 const serviceDetails: Record<string, any> = {
+  "hidraulica": {
+    title: "Hidráulica",
+    category: "Hidráulica",
+    description:
+      "Soluções completas em sistemas hidráulicos e pneumáticos",
+    fullDescription: `A MG Hidráulica oferece soluções completas em sistemas hidráulicos e pneumáticos, com expertise de mais de 30 anos no mercado. Nossas soluções abrangem desde cilindros hidráulicos até bombas especializadas, tudo com rigoroso controle de qualidade.`,
+    applications: [
+      "Cilindros hidráulicos e pneumáticos (reforma e fabricação)",
+      "Compressores e motores hidráulicos",
+      "Suspensão de caminhões off-Road (óleo e nitrogênio)",
+      "Unidades hidráulicas (comandos, válvulas, blocos)",
+      "Martelos rompedores hidráulicos",
+      "Bombas (pistão, engrenagem, palheta, centrífuga vertical e horizontal)",
+    ],
+    specifications: [
+      "Componentes com pressão até 350 bar",
+      "Diâmetros variados (10mm a 500mm)",
+      "Compatibilidade com diversos óleos hidráulicos",
+      "Acabamento anodizado e cromado",
+      "Certificação ISO 9001",
+    ],
+    images: [
+      "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600",
+    ],
+  },
+  "mecanica": {
+    title: "Mecânica",
+    category: "Mecânica",
+    description:
+      "Componentes mecânicos de alta qualidade para indústria pesada",
+    fullDescription: `Especializada em componentes mecânicos de alta qualidade para indústria pesada, a MG Hidráulica oferece soluções robustas e confiáveis. Desde conversores de torque até transmissões Caterpillar, garantimos performance excepcional.`,
+    applications: [
+      "Conversor de torque",
+      "Comando final dos tratores D8T, D9T, D10 e D11",
+      "Diferencial",
+      "Peças de caminhões Off-Road (âncora, mancal, balança dianteira e traseira, 5ª roda, cubo da roda)",
+      "Redutores de velocidade",
+      "Redutores de locomoção",
+      "Transmissão Caterpillar",
+      "Trocador de calor",
+    ],
+    specifications: [
+      "Componentes de alta resistência",
+      "Eficiência acima de 90%",
+      "Capacidade de redução até 1:1000",
+      "Potências de 0.75 CV até 200 CV",
+      "Carcaça em alumínio ou ferro fundido",
+    ],
+    images: [
+      "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600",
+    ],
+  },
+  "usinagem": {
+    title: "Usinagem & Caldeiraria",
+    category: "Usinagem e Caldeiraria",
+    description:
+      "Serviços especializados de usinagem de precisão e caldeiraria",
+    fullDescription: `Oferecemos serviços especializados de usinagem de precisão e caldeiraria, com equipamentos de última geração e profissionais altamente qualificados. Cada projeto é executado com rigor técnico e excelência.`,
+    applications: [
+      "Usinagem de peças conforme desenho",
+      "Recuperação de componentes metálicos (trincas, corrosão, desgaste, empeno...)",
+      "Jateamento e pintura industrial",
+    ],
+    specifications: [
+      "Tornos CNC e fresadoras de 5 eixos",
+      "Tolerância até IT6",
+      "Acabamento superficial Ra até 0.4 µm",
+      "Soldagem MIG, TIG e eletrodo",
+      "Capacidade de peças até 1 tonelada",
+    ],
+    images: [
+      "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=600",
+    ],
+  },
   "cilindros-hidraulicos": {
     title: "Cilindros Hidráulicos e Pneumáticos",
     icon: "🔧",
@@ -270,14 +344,6 @@ export default function ServicoDetailPage() {
                 className="border-white text-white hover:bg-white hover:text-primary-600"
               >
                 Fale Conosco
-              </Button>
-            </Link>
-            <Link href="/contato">
-              <Button
-                size="lg"
-                className="bg-white text-primary-600 hover:bg-dark-100"
-              >
-                Solicite um Orçamento
               </Button>
             </Link>
           </div>

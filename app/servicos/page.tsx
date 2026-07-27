@@ -19,7 +19,7 @@ export default function ServicosPage() {
       icon: "🔧",
       description:
         "Cilindros hidráulicos de alta qualidade para sistemas de força e controle",
-      applications: ["Máquinas industriais", "Equipamentos pesados", "Sistemas de prensa"],
+      applications: ["Máquinas industriais", "Equipamentos pesados", "Sistemas de prensagem"],
     },
     {
       id: "bombas-hidraulicas",

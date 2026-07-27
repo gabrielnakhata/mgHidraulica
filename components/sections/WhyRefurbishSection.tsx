@@ -127,7 +127,7 @@ export default function WhyRefurbishSection() {
           viewport={{ once: true }}
         >
           <h3 className="text-2xl font-bold text-dark-900 mb-4">
-            Por que Reformar ao invés de Comprar um Novo Componente?
+            POR QUE REFORMAR AO INVÉS DE COMPRAR UM NOVO COMPONENTE?
           </h3>
           <p className="text-dark-700 leading-relaxed mb-4">
             Essa é uma das decisões mais importantes para um gestor de
