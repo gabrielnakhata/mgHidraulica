@@ -163,31 +163,6 @@ const serviceDetails: Record<string, any> = {
     ],
     images: [],
   },
-  usinagem: {
-    title: "Usinagem de Peças Complexas",
-    icon: "🛠️",
-    category: "Usinagem e Caldeiraria",
-    description:
-      "Usinagem de precisão para peças simples e complexas em diversos materiais.",
-    fullDescription: `Com equipamentos CNC de última geração, realizamos usinagem de peças 
-    em aço, alumínio, cobre, latão e outros materiais. Tolerâncias apertadas e acabamento 
-    de primeira qualidade.`,
-    applications: [
-      "Componentes industriais",
-      "Peças de reposição",
-      "Equipamentos customizados",
-      "Setores aeroespacial e automotivo",
-      "Recuperação de componentes",
-    ],
-    specifications: [
-      "Tornos CNC convencionais e paralelos",
-      "Fresadoras CNC de até 5 eixos",
-      "Tolerância até IT6",
-      "Acabamento superficial Ra até 0.4 µm",
-      "Capacidade de peças até 1 tonelada",
-    ],
-    images: [],
-  },
   caldeiraria: {
     title: "Caldeiraria Industrial",
     icon: "🏗️",
