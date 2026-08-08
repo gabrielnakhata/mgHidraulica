@@ -4,10 +4,27 @@ import Container from "@/components/ui/Container";
 import SectionTitle from "@/components/ui/SectionTitle";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+const heroImages = [
+  "/img/MGH/10.JPG",
+  "/img/MGH/sede.jpg",
+  "/img/MGH/sede%201.jpg",
+  "/img/MGH/Imagem3.png",
+];
 
 export default function AboutSection() {
   const [selectedBenefit, setSelectedBenefit] = useState<string | null>(null);
+  const [heroImageIndex, setHeroImageIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setHeroImageIndex((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, []);
 
   const highlights = [
     {
@@ -70,37 +87,48 @@ export default function AboutSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center mb-14">
           <AnimatedSection>
-            <div className="relative h-[340px] md:h-[420px] overflow-hidden rounded-2xl shadow-xl border border-[#DDE7E3] bg-[#1F4A72]">
-              <Image
-              src="/img/bg-1.jpg"
-              alt="Soluções Industriais MG Hidráulica"
-              fill
-              priority
-              className="object-cover opacity-90"
-              />
+            <div className="rounded-2xl shadow-xl border border-[#DDE7E3] overflow-hidden">
+              <div className="relative flex items-center justify-center gap-3 bg-white px-6 py-4">
+                <div className="absolute left-0 top-0 h-full w-1.5 bg-[#8BC53F]" />
 
-              <div className="absolute inset-0 bg-gradient-to-r from-[#1F4A72]/70 via-[#1F4A72]/25 to-transparent" />
-
-              <div className="absolute left-6 bottom-6">
-                <div className="relative overflow-hidden rounded-2xl bg-white/95 px-6 py-5 shadow-2xl border border-white/70">
-                  <div className="absolute left-0 top-0 h-full w-1.5 bg-[#8BC53F]" />
-
-                  <div className="flex items-end gap-2">
-                    <span className="text-4xl md:text-6xl font-extrabold leading-none text-[#1F4A72]">
-                      30
-                    </span>
-                    <span className="mb-1 text-5xl font-extrabold text-[#8BC53F]">
-                      +
-                    </span>
-                  </div>
-
-                  <div className="text-4xl md:text-3xl font-bold leading-none text-[#243447]">
-                    anos de
-                  </div>
-                  <div className="mt-2 md:text-1xl font-bold uppercase tracking-wide text-[#243447]">
-                    experiência!
-                  </div>
+                <div className="flex items-end gap-1">
+                  <span className="text-3xl md:text-4xl font-extrabold leading-none text-[#1F4A72]">
+                    30
+                  </span>
+                  <span className="mb-0.5 text-3xl md:text-4xl font-extrabold text-[#8BC53F]">
+                    +
+                  </span>
                 </div>
+
+                <div className="flex flex-col leading-none">
+                  <span className="text-lg md:text-xl font-bold text-[#243447]">
+                    anos de
+                  </span>
+                  <span className="text-xs md:text-sm font-bold uppercase tracking-wide text-[#243447]">
+                    experiência!
+                  </span>
+                </div>
+              </div>
+
+              <div className="relative h-[300px] md:h-[380px] bg-[#1F4A72]">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={heroImages[heroImageIndex]}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                    className="absolute inset-0"
+                  >
+                    <Image
+                      src={heroImages[heroImageIndex]}
+                      alt="Soluções Industriais MG Hidráulica"
+                      fill
+                      priority
+                      className="object-cover opacity-90"
+                    />
+                  </motion.div>
+                </AnimatePresence>
               </div>
             </div>
           </AnimatedSection>
