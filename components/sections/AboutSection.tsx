@@ -199,34 +199,42 @@ export default function AboutSection() {
 
       {/* Modal com descrição completa */}
       {selectedBenefit && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-            {highlights.map((item) => (
-              item.id === selectedBenefit && (
-                <div key={item.id} className="p-8">
-                  <div className="flex items-start justify-between mb-6">
-                    <div className="flex items-start gap-4">
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#1F4A72] text-[#8BC53F] font-bold text-lg">
-                        ✓
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
+          onClick={() => setSelectedBenefit(null)}
+        >
+          <div
+            className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl bg-white shadow-2xl"
+            onClick={() => setSelectedBenefit(null)}
+          >
+            {highlights.map(
+              (item) =>
+                item.id === selectedBenefit && (
+                  <div key={item.id} className="p-8">
+                    <div className="mb-6 flex items-start justify-between">
+                      <div className="flex items-start gap-4">
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#1F4A72] text-lg font-bold text-[#8BC53F]">
+                          ✓
+                        </div>
+                        <h2 className="text-2xl font-bold text-[#1F4A72]">
+                          {item.title}
+                        </h2>
                       </div>
-                      <h2 className="text-2xl font-bold text-[#1F4A72]">
-                        {item.title}
-                      </h2>
+                      <button
+                        onClick={() => setSelectedBenefit(null)}
+                        className="text-2xl font-light leading-none text-gray-400 hover:text-gray-600"
+                        aria-label="Fechar modal"
+                      >
+                        ×
+                      </button>
                     </div>
-                    <button
-                      onClick={() => setSelectedBenefit(null)}
-                      className="text-gray-400 hover:text-gray-600 text-2xl font-light leading-none"
-                    >
-                      ×
-                    </button>
+                    <div className="mb-6 h-1 w-12 bg-[#8BC53F]" />
+                    <p className="text-base leading-8 text-[#243447] md:text-lg">
+                      {item.description}
+                    </p>
                   </div>
-                  <div className="w-12 h-1 bg-[#8BC53F] mb-6" />
-                  <p className="text-base md:text-lg text-[#243447] leading-8">
-                    {item.description}
-                  </p>
-                </div>
-              )
-            ))}
+                )
+            )}
           </div>
         </div>
       )}
