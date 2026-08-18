@@ -8,6 +8,7 @@ import Container from "@/components/ui/Container";
 import Card from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { contactFormSchema, type ContactFormData } from "@/lib/validations";
+import { getWhatsAppUrl, openWhatsApp } from "@/lib/whatsapp";
 
 export default function ContatoPage() {
   const {
@@ -38,14 +39,8 @@ ${data.message}
 ---
 Enviado através do website MG Hidráulica`;
 
-    // Codificar mensagem para URL
-    const encodedMessage = encodeURIComponent(whatsappMessage);
+    openWhatsApp(whatsappMessage);
 
-    // Abrir WhatsApp com mensagem pré-preenchida
-    const whatsappUrl = `https://wa.me/553171749738?text=${encodedMessage}`;
-    window.open(whatsappUrl, "_blank");
-
-    // Limpar formulário
     reset();
   };
 
@@ -149,7 +144,11 @@ Enviado através do website MG Hidráulica`;
                   </p>
 
                   <a
-                    href="https://wa.me/553171749738?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento."
+                    href={getWhatsAppUrl("Olá, gostaria de solicitar um orçamento.")}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      openWhatsApp("Olá, gostaria de solicitar um orçamento.");
+                    }}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex w-full items-center justify-center rounded-lg bg-white px-5 py-3 text-sm font-bold text-primary-700 transition hover:bg-dark-50"

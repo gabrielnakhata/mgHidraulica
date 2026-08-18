@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -30,6 +31,7 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body className="bg-white text-dark-900 antialiased">
         {children}
+        <ScrollToTopButton />
       </body>
     </html>
   );
