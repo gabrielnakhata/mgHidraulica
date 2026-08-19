@@ -1,201 +1,305 @@
 "use client";
 
-import Link from "next/link";
+import { useRef, useState } from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Container from "@/components/ui/Container";
 import SectionTitle from "@/components/ui/SectionTitle";
-import Card from "@/components/ui/Card";
-import { Button } from "@/components/ui/Button";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
-export default function ServicosPage() {
+const serviceGroups = [
+  {
+    id: "hidraulica",
+    title: "Hidráulica",
+    description:
+      "Reforma ou fabricação de componentes hidráulicos e pneumáticos para aplicações industriais.",
+    images: [
+      "/img/MGH/CILINDRO HIDRÁULICO DE ELEVAÇÃO CAMINHÃO 775G.jpg",
+      "/img/MGH/CILINDRO HIDRÁULICO DE ELEVAÇÃO ESCAVADEIRA 390D.jpg",
+      "/img/MGH/BOMBA HIDRAULICA 3 PARAFUSOS.jpg",
+      "/img/MGH/UNIDADE HIDRAULICA.jpg",
+      "/img/MGH/BOMBA HIDRAULICA EATON VICKERS.jpg",
+      "/img/MGH/CILINDRO HIDRÁULICO PERFURATRIS PIT VIPER 351, 275 e 271.jpg",
+      "/img/MGH/UNIDADE HIDRAULICA DO FREIO.jpg",
+      "/img/MGH/MOTOR HIDRAULICO BRITADAOR.jpg",
+      "/img/MGH/CILINDRO HIDRÁULICO DE ELEVAÇÃO VOLVO EC700.jpg",
+      "/img/MGH/CILINDRO HIDRÁULICO DE SUSPENSÃO CAMINHÃO 775G.jpg",
+      "/img/MGH/IMG_5091.JPG",
+    ],
+    applications: [
+      "Cilindros hidráulicos e pneumáticos (reforma e fabricação)",
+      "Compressores e motores hidráulicos",
+      "Unidades hidráulicas (comandos, válvulas, blocos)",
+      "Martelos rompedores",
+      "Bombas hidráulicas (tipo pistão, engrenagem, palheta, água, centrífuga vertical e horizontal)",
+      "Sopradores industriais",
+      "Mancais rotativos",
+    ],
+    commonServices: [
+      "Recebimento do componente, lavagem, descontaminação e desmontagem completa",
+      "Inspeção visual e dimensional: folgas, ovalização, fragilidades, danos em partes cromadas etc.",
+      "Ensaios não destrutivos para identificar trincas ocultas",
+      "Laudo técnico com diagnóstico de falhas e medidas de correção necessárias",
+      "Teste final em bancada: pressão, vazão, tempo de resposta e estanqueidade",
+    ],
+    specificServices: [
+      "Haste de cilindros: retífica e cromagem (cromo duro industrial)",
+      "Camisa de cilindros: brunimento ou retífica para recuperar diâmetro e rugosidade",
+      "Tampas e cabeçote de cilindros: retífica das faces de vedação e recuperação de roscas e canais de vedação",
+      "Kit de vedação: caracterização/padronização dos componentes",
+      "Bombas e motores: checagem de folga em engrenagens, troca do conjunto rotativo e retífica em pistões",
+      "Eixo de saída: retífica e recuperação em caso de desgaste",
+      "Comandos e válvulas: testes elétricos em bobinas e solenoides, calibração em bancada",
+    ],
+  },
+  {
+    id: "mecanica",
+    title: "Mecânica",
+    description:
+      "Recuperação de componentes ou subconjuntos mecânicos para indústria pesada.",
+    images: [
+      "/img/MGH/COMANDO FINAL 775G.jpg",
+      "/img/MGH/CUBO COMANDO FINAL 785C.jpg",
+      "/img/MGH/EIXO COMANDO FINAL 777G.jpg",
+      "/img/MGH/COMANDO FINAL – TRATOR DE ESTEIRA DE ESTEIRA CAT - D8.jpg",
+      "/img/MGH/BALANÇA EIXO TRASEIRO WA1200.jpg",
+      "/img/MGH/QUINTA RODA CARRETA HERCULES.jpg",
+      "/img/MGH/IMG_20250703_133125.jpg",
+      "/img/MGH/BADEJA DIREÇÃO 793D.jpg",
+      "/img/MGH/DSC09871.JPG",
+      "/img/MGH/DSC09424.JPG",
+      "/img/MGH/DSC02886.JPG",
+    ],
+    applications: [
+      "Conversores de torque",
+      "Comando final dos tratores D8T, D9T, D10 e D11",
+      "Diferencial",
+      "Peças de caminhões off-road: âncora, mancal, balança dianteira e traseira, 5ª roda, cubo da roda",
+      "Redutores de velocidade",
+      "Transmissão Caterpillar",
+      "Trocador de calor",
+    ],
+    commonServices: [
+      "Limpeza prévia: desengraxe e lavagem para remoção de óleo e graxa",
+      "Inspeção visual e dimensional para verificações de avarias, trincas, desgaste e corrosão",
+      "Ensaios não destrutivos para identificar trincas ocultas",
+      "Diagnóstico técnico para definir causa da falha e viabilidade da recuperação",
+      "Teste funcional em bancada: pressão, vibração e ruído",
+      "Ajuste final: alinhamento e torque",
+    ],
+    specificServices: [
+      "Usinagem: refazer diâmetros, faces e rasgos, corrigir ovalização de furos e acabamento superficial",
+      "Recuperação dimensional: solda, metalização, embuchamento e recuperação de rosca",
+      "Tratamento térmico: recuperação de dureza e alívio de tensões após solda",
+      "Balanceamento: eixos, rotores e polias",
+      "Tratamento superficial: primer + acabamento e proteção anticorrosiva",
+    ],
+  },
+  {
+    id: "usinagem-caldeiraria",
+    title: "Usinagem & Caldeiraria",
+    description:
+      "Recuperação ou fabricação de peças ou subconjuntos conforme desenho ou amostra.",
+    images: [
+      "/img/MGH/cnc.JPG",
+      "/img/MGH/IMG_20250703_145430.jpg",
+      "/img/MGH/TAMBOR DE CORREIA.jpg",
+      "/img/MGH/IMG_20250703_150038.jpg",
+      "/img/MGH/EIXO DA PRANCHA.jpg",
+      "/img/MGH/VOLANTE DE INERCIA.jpg",
+      "/img/MGH/UNIDADE DE EXTRASÃO E DESMPENHO - LINGOTAMENTO CONTINUO.jpg",
+      "/img/MGH/CARRO TRANSPORTADOR RESFRIADOR DOS ROLOS.jpg",
+      "/img/MGH/DESTALONADOR DE PNEUS.jpg",
+      "/img/MGH/MINERAÇÃO.jpg",
+      "/img/MGH/sede 1.jpg",
+      "/img/MGH/sede.jpg",
+    ],
+    applications: [
+      "Componentes de máquinas ou linhas de produção: tanques, caçambas, tubulações, polias, eixos, engrenagens, volantes, tambor de correia",
+      "Componentes de instalações industriais: estruturas de caldeiraria de pequeno, médio e grande porte, pórticos, gaiolas",
+    ],
+    commonServices: [
+      "Confecção de peças conforme desenho ou amostra",
+      "Recuperação dimensional e recondicionamento estrutural",
+      "Soldagem, usinagem, ajuste e acabamento",
+      "Inspeção final para garantia de desempenho e qualidade",
+    ],
+    specificServices: [
+      "Fabricação de estruturas metálicas e conjuntos industriais",
+      "Recuperação de componentes submetidos a desgaste, corrosão e deformação",
+      "Serviços de usinagem para peças especiais e reparos mecânicos",
+      "Pintura industrial e proteção anticorrosiva",
+    ],
+  },
+];
 
-  const services = [
-    {
-      id: "cilindros-hidraulicos",
-      title: "Cilindros Hidráulicos",
-      category: "Hidráulica",
-      icon: "🔧",
-      description:
-        "Cilindros hidráulicos de alta qualidade para sistemas de força e controle",
-      applications: ["Máquinas industriais", "Equipamentos pesados", "Sistemas de prensagem"],
-    },
-    {
-      id: "bombas-hidraulicas",
-      title: "Bombas Hidráulicas",
-      category: "Hidráulica",
-      icon: "💧",
-      description:
-        "Bombas hidráulicas robustas para aplicações industriais exigentes",
-      applications: ["Sistemas pressorizados", "Unidades hidráulicas", "Equipamentos móveis"],
-    },
-    {
-      id: "motoredutores",
-      title: "Motoredutores",
-      category: "Mecânica",
-      icon: "⚙️",
-      description:
-        "Motoredutores de precisão para transmissão de potência e movimento",
-      applications: ["Transportadores", "Guindastes", "Máquinas de produção"],
-    },
-    {
-      id: "usinagem",
-      title: "Usinagem",
-      category: "Usinagem e Caldeiraria",
-      icon: "🛠️",
-      description:
-        "Usinagem de peças complexas com alta precisão e qualidade",
-      applications: ["Peças customizadas", "Componentes industriais", "Reparação especializada"],
-    },
-    {
-      id: "caldeiraria",
-      title: "Caldeiraria",
-      category: "Usinagem e Caldeiraria",
-      icon: "🏗️",
-      description:
-        "Serviços de caldeiraria para estruturas e componentes metálicos",
-      applications: ["Estruturas", "Equipamentos", "Componentes soldados"],
-    },
-    {
-      id: "recuperacao-componentes",
-      title: "Recuperação de Componentes",
-      category: "Serviços Especiais",
-      icon: "♻️",
-      description:
-        "Recuperação e restauração de componentes industriais desgastados",
-      applications: ["Peças antigas", "Componentes danificados", "Reparos estruturais"],
-    },
-  ];
+function ServiceGallery({ images, title }: { images: string[]; title: string }) {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const thumbnailsRef = useRef<HTMLDivElement | null>(null);
+
+  const goToIndex = (index: number) => {
+    setActiveIndex(index);
+    if (thumbnailsRef.current) {
+      const button = thumbnailsRef.current.children[index] as HTMLElement | undefined;
+      button?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+    }
+  };
+
+  const prevImage = () => {
+    const nextIndex = activeIndex === 0 ? images.length - 1 : activeIndex - 1;
+    goToIndex(nextIndex);
+  };
+
+  const nextImage = () => {
+    const nextIndex = activeIndex === images.length - 1 ? 0 : activeIndex + 1;
+    goToIndex(nextIndex);
+  };
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="overflow-hidden rounded-2xl border border-[#DDE7E3] bg-[#F4F8F7] shadow-sm">
+      <div className="bg-[#edf3f1] p-2 md:p-3">
+        <div className="flex max-h-[70vh] items-center justify-center overflow-hidden rounded-xl bg-[#edf3f1] md:max-h-[78vh]">
+          <img
+            src={images[activeIndex]}
+            alt={`${title} - imagem ${activeIndex + 1}`}
+            className="block h-auto max-h-[70vh] w-full object-contain md:max-h-[78vh]"
+            loading={activeIndex === 0 ? "eager" : "lazy"}
+            draggable={false}
+            style={{ maxWidth: "100%" }}
+          />
+        </div>
+      </div>
+
+      <div className="flex items-center justify-between gap-3 border-t border-[#E7EFEA] bg-white px-3 py-3 md:px-4">
+        <button
+          type="button"
+          onClick={prevImage}
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#DDE7E3] bg-[#F7FAF9] text-lg font-bold text-dark-900 transition hover:bg-dark-100"
+          aria-label={`Imagem anterior de ${title}`}
+        >
+          ←
+        </button>
+
+        <div
+          ref={thumbnailsRef}
+          className="flex min-w-0 flex-1 items-center gap-2 overflow-x-auto scroll-smooth px-1 py-1 snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          style={{ WebkitOverflowScrolling: "touch", touchAction: "pan-x", scrollbarWidth: "none" }}
+        >
+          {images.map((image, index) => (
+            <button
+              key={`${title}-${image}`}
+              type="button"
+              onClick={() => goToIndex(index)}
+              className={`relative h-16 w-24 shrink-0 snap-start overflow-hidden rounded-lg border bg-[#edf3f1] transition-all ${
+                index === activeIndex
+                  ? "border-primary-600 ring-2 ring-primary-200"
+                  : "border-[#DDE7E3] opacity-80 hover:opacity-100"
+              }`}
+              aria-label={`Selecionar imagem ${index + 1} de ${title}`}
+            >
+              <img
+                src={image}
+                alt={`${title} - miniatura ${index + 1}`}
+                className="h-full w-full object-cover"
+                loading="lazy"
+                draggable={false}
+              />
+            </button>
+          ))}
+        </div>
+
+        <button
+          type="button"
+          onClick={nextImage}
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#DDE7E3] bg-[#F7FAF9] text-lg font-bold text-dark-900 transition hover:bg-dark-100"
+          aria-label={`Próxima imagem de ${title}`}
+        >
+          →
+        </button>
+      </div>
+    </div>
+  );
+}
+
+export default function ServicosPage() {
+  return (
+    <div className="flex min-h-screen flex-col">
       <Header />
       <main className="flex-grow">
-      <section className="bg-gradient-to-r from-dark-900 to-dark-800 text-white py-20 md:py-32">
-        <Container className="text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Nossos Serviços
-          </h1>
-          <p className="text-xl text-dark-200 max-w-2xl mx-auto">
-            Soluções completas em hidráulica, mecânica, usinagem e caldeiraria
-          </p>
-        </Container>
-      </section>
+        <section className="bg-gradient-to-r from-dark-900 to-dark-800 py-20 text-white md:py-28">
+          <Container className="text-center">
+            <h1 className="text-4xl font-bold md:text-5xl">Nossos Serviços</h1>
+          </Container>
+        </section>
 
-      <section className="section-padding bg-white">
-        <Container>
-          <SectionTitle
-            title="Categorias de Serviços"
-            subtitle="Explore nossas três principais áreas de atuação"
-          />
+        <section className="section-padding bg-white">
+          <Container>
+            <SectionTitle
+              title="Categorias de Serviços"
+              subtitle="Explore nossas três principais áreas de atuação"
+              className="mb-8"
+            />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service, index) => (
-              <AnimatedSection key={service.id} delay={index * 0.1}>
-                <Card className="flex flex-col h-full">
-                  <div className="text-5xl mb-4">{service.icon}</div>
-                  <div className="text-sm font-semibold text-primary-600 mb-2">
-                    {service.category}
-                  </div>
-                  <h3 className="text-2xl font-bold text-dark-900 mb-3">
-                    {service.title}
-                  </h3>
-                  <p className="text-dark-600 mb-6 flex-grow">
-                    {service.description}
-                  </p>
-                  <div className="mb-6">
-                    <p className="text-sm font-semibold text-dark-900 mb-2">
-                      Aplicações:
+            <div className="space-y-6">
+              {serviceGroups.map((group, index) => (
+                <AnimatedSection key={group.id} delay={index * 0.1}>
+                  <div className="rounded-2xl border border-[#DDE7E3] bg-[#F7FAF9] p-5 shadow-sm md:p-7">
+                    <div className="mb-4 flex items-center gap-3">
+                      <span className="inline-flex h-3 w-3 rounded-full bg-[#8BC53F]" />
+                      <h2 className="text-2xl font-bold text-dark-900 md:text-3xl">{group.title}</h2>
+                    </div>
+
+                    <p className="mb-5 text-sm leading-6 text-dark-700 md:text-base md:leading-7">
+                      {group.description}
                     </p>
-                    <ul className="text-sm text-dark-600 space-y-1">
-                      {service.applications.map((app) => (
-                        <li key={app}>• {app}</li>
-                      ))}
-                    </ul>
+
+                    <div className="grid gap-5 lg:grid-cols-[1.15fr_1.85fr] lg:items-center">
+                      <ServiceGallery images={group.images} title={group.title} />
+
+                      <div className="rounded-xl bg-white p-4 shadow-sm md:p-5">
+                        <h3 className="mb-3 text-lg font-bold text-dark-900">Aplicações</h3>
+                        <ul className="space-y-2.5">
+                          {group.applications.map((item) => (
+                            <li key={item} className="flex items-start gap-3 text-sm text-dark-700 md:text-base">
+                              <span className="mt-1.5 h-2.5 w-2.5 flex-shrink-0 rounded-full bg-primary-500" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="mt-5 grid gap-5 lg:grid-cols-2">
+                      <div className="rounded-xl bg-white p-4 shadow-sm md:p-5">
+                        <h3 className="mb-3 text-lg font-bold text-dark-900">Serviços executados</h3>
+                        <ul className="space-y-2.5">
+                          {group.commonServices.map((item) => (
+                            <li key={item} className="flex items-start gap-3 text-sm text-dark-700 md:text-base">
+                              <span className="mt-1.5 h-2.5 w-2.5 flex-shrink-0 rounded-full bg-[#8BC53F]" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div className="rounded-xl bg-white p-4 shadow-sm md:p-5">
+                        <h3 className="mb-3 text-lg font-bold text-dark-900">Serviços específicos</h3>
+                        <ul className="space-y-2.5">
+                          {group.specificServices.map((item) => (
+                            <li key={item} className="flex items-start gap-3 text-sm text-dark-700 md:text-base">
+                              <span className="mt-1.5 h-2.5 w-2.5 flex-shrink-0 rounded-full bg-primary-500" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
                   </div>
-                  <Link href={`/servicos/${service.id}`}>
-                    <Button className="w-full">Saiba Mais</Button>
-                  </Link>
-                </Card>
-              </AnimatedSection>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      <section className="section-padding bg-dark-50">
-        <Container>
-          <SectionTitle
-            title="Por que nos escolher?"
-            subtitle="Mais de 30 anos de excelência"
-          />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                icon: "⚡",
-                title: "Eficiência",
-                desc: "Processos otimizados e rápidos",
-              },
-              {
-                icon: "✅",
-                title: "Qualidade",
-                desc: "Padrões internacionais de excelência",
-              },
-              {
-                icon: "💰",
-                title: "Competitividade",
-                desc: "Preços justos e acessíveis",
-              },
-              {
-                icon: "⏱️",
-                title: "Prazos",
-                desc: "Entrega conforme combinado",
-              },
-            ].map((item) => (
-              <AnimatedSection key={item.title}>
-                <div className="bg-white p-6 rounded-lg text-center">
-                  <div className="text-4xl mb-3">{item.icon}</div>
-                  <h4 className="font-bold text-dark-900 mb-2">
-                    {item.title}
-                  </h4>
-                  <p className="text-sm text-dark-600">{item.desc}</p>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      <section className="section-padding bg-gradient-to-r from-primary-600 to-primary-500 text-white">
-        <Container className="text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Precisa de uma solução especial?
-          </h2>
-          <p className="text-lg text-primary-100 mb-8 max-w-2xl mx-auto">
-            Nossos especialistas estão prontos para atender suas necessidades específicas
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contato">
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-primary-600"
-              >
-                Fale Conosco
-              </Button>
-            </Link>
-            <Link href="/contato">
-              <Button
-                size="lg"
-                className="bg-white text-primary-600 hover:bg-dark-100"
-              >
-                Solicite um Orçamento
-              </Button>
-            </Link>
-          </div>
-        </Container>
-      </section>
+                </AnimatedSection>
+              ))}
+            </div>
+          </Container>
+        </section>
       </main>
       <Footer />
     </div>

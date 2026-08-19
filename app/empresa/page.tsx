@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Container from "@/components/ui/Container";
@@ -163,21 +162,20 @@ export default function EmpresaPage() {
                 <h3 className="text-2xl font-bold text-dark-900 mb-6 text-center">
                   {group.title}
                 </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                   {group.images.map((img) => (
                     <AnimatedSection key={img.src}>
-                      <div className="bg-white rounded-lg shadow-sm border border-dark-100 overflow-hidden h-full flex flex-col">
-                        <div className="relative aspect-[4/3] bg-dark-50">
-                          <Image
+                      <div className="overflow-hidden rounded-2xl border border-[#DDE7E3] bg-[#F8FBFA] shadow-sm">
+                        <div className="bg-[#edf3f1] p-3">
+                          <img
                             src={img.src}
                             alt={img.alt}
-                            fill
-                            sizes="(max-width: 640px) 100vw, 50vw"
-                            className="object-contain p-2"
+                            className="h-64 w-full rounded-2xl object-cover md:h-80"
+                            loading="lazy"
                           />
                         </div>
-                        <div className="p-4 border-t border-dark-100">
-                          <p className="text-dark-700 text-base leading-relaxed text-center">
+                        <div className="p-4">
+                          <p className="text-center text-base leading-relaxed text-dark-700">
                             {img.alt}
                           </p>
                         </div>
