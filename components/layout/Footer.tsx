@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Container from "@/components/ui/Container";
+import { getWhatsAppUrl, openWhatsApp } from "@/lib/whatsapp";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -70,7 +71,11 @@ export default function Footer() {
               </a>
 
               <a
-                href="https://wa.me/553171749738?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento."
+                href={getWhatsAppUrl("Olá, gostaria de solicitar um orçamento.")}
+                onClick={(event) => {
+                  event.preventDefault();
+                  openWhatsApp("Olá, gostaria de solicitar um orçamento.");
+                }}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 text-white transition hover:bg-[#8BC53F] hover:text-[#1F4A72]"
