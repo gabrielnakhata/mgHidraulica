@@ -86,8 +86,8 @@ export const siteConfig = {
 
   // Social Media
   social: {
-    email: "contato@mghidraulica.com.br",
+    email: "mghidraulica@mghidraulicaind.com.br",
     phone: "+55 (31) XXXX-XXXX",
-    address: "Betim, MG",
+    address: "R. Platina, 123 - Betim Industrial, Betim - MG, 32670-374, Brasil",
   },
 };
