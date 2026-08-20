@@ -85,9 +85,6 @@ export default function WhyRefurbishPage() {
                 transition={{ duration: 0.8 }}
                 className="max-w-3xl mx-auto text-center"
               >
-                <span className="inline-block px-4 py-2 bg-primary-500/20 border border-primary-400/50 rounded-full text-primary-200 text-sm font-semibold mb-6">
-                  Decisão Inteligente
-                </span>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
                   Decisão Inteligente
                 </h1>

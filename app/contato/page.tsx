@@ -48,7 +48,7 @@ Enviado através do website MG Hidráulica`;
     {
       icon: "📧",
       title: "Email",
-      value: "contato@mghidraulica.com.br",
+      value: "mghidraulica@mghidraulicaind.com.br",
     },
     {
       icon: "📱",
@@ -58,7 +58,7 @@ Enviado através do website MG Hidráulica`;
     {
       icon: "📍",
       title: "Localização",
-      value: "Betim, Minas Gerais",
+      value: "R. Platina, 123 - Betim Industrial, Betim - MG, 32670-374, Brasil",
     },
   ];
 
@@ -340,26 +340,38 @@ Enviado através do website MG Hidráulica`;
               </h2>
 
               <p className="mx-auto max-w-2xl text-dark-600">
-                Estamos localizados em Betim, Minas Gerais, em uma região
-                estratégica para atendimento industrial.
+                R. Platina, 123 - Betim Industrial, Betim - MG, 32670-374,
+                Brasil
               </p>
+            </div>
+
+            <div className="mb-6 overflow-hidden rounded-2xl border border-dark-100 shadow-lg">
+              <iframe
+                title="Mapa Satélite MG Hidráulica"
+                src="https://www.google.com/maps?q=R.%20Platina%2C%20123%20-%20Betim%20Industrial%2C%20Betim%20-%20MG%2C%2032670-374%2C%20Brasil&t=k&z=18&output=embed"
+                className="h-[320px] w-full md:h-[420px]"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+              />
             </div>
 
             <div className="overflow-hidden rounded-2xl border border-dark-100 shadow-lg">
               <iframe
                 title="Localização MG Hidráulica"
-                src="https://www.google.com/maps?q=MG%20Hidr%C3%A1ulica%20Betim%20MG&z=16&output=embed"
+                src="https://www.google.com/maps/embed?pb=!4v1787266832140!6m8!1m7!1s0B2KBXYHfA9uivhHbCWnsA!2m2!1d-19.96316442350032!2d-44.17492418083999!3f43.81860422968927!4f5.219166631578773!5f1.5362075765591814"
                 className="h-[320px] w-full md:h-[420px]"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
+                referrerPolicy="strict-origin-when-cross-origin"
               />
             </div>
 
             <div className="mt-6 text-center">
               <a
-                href="https://www.google.com/maps/search/?api=1&query=MG%20Hidr%C3%A1ulica%20Betim%20MG"
+                href="https://www.google.com/maps/search/?api=1&query=R.%20Platina%2C%20123%20-%20Betim%20Industrial%2C%20Betim%20-%20MG%2C%2032670-374%2C%20Brasil"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-lg border border-primary-600 px-5 py-3 text-sm font-bold text-primary-700 transition hover:bg-primary-600 hover:text-white"
