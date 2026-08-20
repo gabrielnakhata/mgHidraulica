@@ -12,15 +12,15 @@ const facilitiesGroups = [
   {
     title: "Instalações da Empresa",
     images: [
-      { src: "/img/work1.png", alt: "Área de Fábrica de 1.500m²" },
+      { src: "/img/work1.jpeg", alt: "Área de Fábrica de 1.500m²" },
       { src: "/img/work2.jpeg", alt: "Área de Usinagem de 500m²" },
-      { src: "/img/work3.png", alt: "Área de Montagem de 500m²" },
+      { src: "/img/work3.jpeg", alt: "Área de Montagem de 500m²" },
       { src: "/img/work4.jpeg", alt: "Área de Solda de 60m²" },
       { src: "/img/work5.jpeg", alt: "Área de Pintura de 40m²" },
       { src: "/img/work6.jpeg", alt: "Área de Pátio de 500m²" },
-      { src: "/img/work7.png", alt: "Lavador de Peças de 25m²" },
+      { src: "/img/work7.jpeg", alt: "Lavador de Peças de 25m²" },
       { src: "/img/work8.jpeg", alt: "Tanque de Cromagem" },
-      { src: "/img/work9.jpeg", alt: "Tanque de Cromagem" },
+      // { src: "/img/work9.jpeg", alt: "Tanque de Cromagem" },
     ],
   },
   {
@@ -166,11 +166,11 @@ export default function EmpresaPage() {
                   {group.images.map((img) => (
                     <AnimatedSection key={img.src}>
                       <div className="overflow-hidden rounded-2xl border border-[#DDE7E3] bg-[#F8FBFA] shadow-sm">
-                        <div className="bg-[#edf3f1] p-3">
+                        <div className="flex h-64 items-center justify-center bg-[#edf3f1] p-3 md:h-80">
                           <img
                             src={img.src}
                             alt={img.alt}
-                            className="h-64 w-full rounded-2xl object-cover md:h-80"
+                            className="h-full w-full rounded-2xl object-contain"
                             loading="lazy"
                           />
                         </div>
