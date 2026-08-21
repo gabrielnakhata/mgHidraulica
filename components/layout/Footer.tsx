@@ -18,9 +18,9 @@ export default function Footer() {
     {
       title: "Serviços",
       links: [
-        { name: "Hidráulica", href: "/servicos/hidraulica" },
-        { name: "Mecânica", href: "/servicos/mecanica" },
-        { name: "Usinagem", href: "/servicos/usinagem" },
+        { name: "Hidráulica", href: "/servicos#hidraulica" },
+        { name: "Mecânica", href: "/servicos#mecanica" },
+        { name: "Usinagem", href: "/servicos#usinagem-caldeiraria" },
       ],
     },
 
