@@ -243,7 +243,10 @@ export default function ServicosPage() {
             <div className="space-y-6">
               {serviceGroups.map((group, index) => (
                 <AnimatedSection key={group.id} delay={index * 0.1}>
-                  <div className="rounded-2xl border border-[#DDE7E3] bg-[#F7FAF9] p-5 shadow-sm md:p-7">
+                  <div
+                    id={group.id}
+                    className="scroll-mt-24 rounded-2xl border border-[#DDE7E3] bg-[#F7FAF9] p-5 shadow-sm md:scroll-mt-28 md:p-7"
+                  >
                     <div className="mb-4 flex items-center gap-3">
                       <span className="inline-flex h-3 w-3 rounded-full bg-[#8BC53F]" />
                       <h2 className="text-2xl font-bold text-dark-900 md:text-3xl">{group.title}</h2>
